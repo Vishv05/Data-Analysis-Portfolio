@@ -4,12 +4,29 @@
 
 // Initialize AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', function () {
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out-cubic',
-        once: true,
-        offset: 50,
-    });
+    // Ensure AOS library is loaded
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out-cubic',
+            once: true,
+            offset: 50,
+        });
+    } else {
+        console.warn('AOS library not loaded. Removing opacity-0 classes as fallback.');
+        // Fallback: remove all data-aos opacity hiding
+        setTimeout(() => {
+            document.querySelectorAll('[data-aos]').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            });
+        }, 100);
+    }
+    
+    // Ensure Typed.js is working or show static text
+    if (typeof Typed === 'undefined' && document.getElementById('typed')) {
+        document.getElementById('typed').textContent = 'Data Analyst | Python | SQL | Cloud';
+    }
 });
 
 // ===========================
