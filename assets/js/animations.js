@@ -2,6 +2,32 @@
    ANIMATIONS.JS - GSAP Animations
    =========================== */
 
+function ensureContentVisibilityFallback() {
+    const hiddenByUtility = document.querySelectorAll('.opacity-0');
+    hiddenByUtility.forEach((element) => {
+        element.classList.remove('opacity-0');
+    });
+
+    const criticalSections = document.querySelectorAll(
+        '#projects .project-card, #certifications .md\\:flex, #blog .blog-card, #stats .stat-card, #skills .skill-item'
+    );
+
+    criticalSections.forEach((element) => {
+        element.style.opacity = '1';
+        element.style.transform = 'none';
+        if (element.style.display === 'none') {
+            element.style.display = '';
+        }
+    });
+}
+
+if (!window.gsap || !window.ScrollTrigger) {
+    window.addEventListener('load', () => {
+        ensureContentVisibilityFallback();
+        console.warn('GSAP/ScrollTrigger not available. Fallback visibility mode enabled.');
+    });
+} else {
+
 gsap.registerPlugin(ScrollTrigger);
 
 // ===========================
@@ -235,22 +261,16 @@ gsap.to('#hero', {
 
 const sectionTitles = document.querySelectorAll('h2');
 sectionTitles.forEach((title) => {
-    const titleText = title.textContent;
-    title.innerHTML = titleText
-        .split('')
-        .map(char => `<span class="inline-block" style="opacity: 0">${char}</span>`)
-        .join('');
-    
-    gsap.to(title.querySelectorAll('span'), {
+    gsap.from(title, {
         scrollTrigger: {
             trigger: title,
             start: 'top 80%',
             once: true
         },
-        opacity: 1,
-        y: 0,
-        stagger: 0.02,
-        duration: 0.5
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: 'power2.out'
     });
 });
 
@@ -380,5 +400,8 @@ glowElements.forEach(element => {
 // ===========================
 
 window.addEventListener('load', () => {
+    ensureContentVisibilityFallback();
     console.log('✨ All GSAP animations initialized!');
 });
+
+}
