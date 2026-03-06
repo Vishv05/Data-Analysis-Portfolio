@@ -35,7 +35,7 @@ gsap.registerPlugin(ScrollTrigger);
 // ===========================
 
 // About section timeline animation
-gsap.from('.timeline .flex', {
+gsap.from('#about .flex', {
     scrollTrigger: {
         trigger: '#about',
         start: 'top center',
@@ -189,7 +189,7 @@ blogCards.forEach((card, index) => {
 // CERTIFICATION TIMELINE ANIMATION
 // ===========================
 
-const certItems = document.querySelectorAll('#certifications .md\\:flex');
+const certItems = document.querySelectorAll('#certifications > div > div > div[data-aos]');
 certItems.forEach((item, index) => {
     gsap.from(item, {
         scrollTrigger: {
