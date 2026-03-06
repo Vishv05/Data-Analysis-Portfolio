@@ -1,0 +1,92 @@
+<!-- CONTACT SECTION - Can be loaded modularly -->
+<section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 to-slate-950">
+    <div class="max-w-3xl mx-auto">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4 text-center" data-aos="fade-up">
+            Let's Connect
+        </h2>
+        <p class="text-center text-slate-300 mb-12 text-lg" data-aos="fade-up" data-aos-delay="100">
+            Have a project in mind? Let's discuss how data can drive your next success story.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <div data-aos="fade-right">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-slate-300 mb-2">Full Name *</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all text-white" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-slate-300 mb-2">Email Address *</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all text-white" placeholder="your.email@example.com">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-semibold text-slate-300 mb-2">Subject *</label>
+                        <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all text-white" placeholder="Project Discussion">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-semibold text-slate-300 mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all text-white resize-none" placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    
+                    <!-- Status Message -->
+                    <div id="formStatus" class="hidden p-4 rounded-lg text-sm font-medium"></div>
+                    
+                    <button type="submit" id="submitBtn" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i>
+                        <span id="btnText">Send Message</span>
+                    </button>
+                    
+                    <p class="text-slate-500 text-xs text-center">* Required fields</p>
+                </form>
+            </div>
+
+            <div class="space-y-8" data-aos="fade-left">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-blue-500/20 border border-blue-500/50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fas fa-envelope text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white mb-1">Email</h3>
+                        <a href="mailto:hello@vishvbhavsar.com" class="text-cyan-400 hover:text-cyan-300 transition-colors">hello@vishvbhavsar.com</a>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-cyan-500/20 border border-cyan-500/50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fas fa-phone text-cyan-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white mb-1">Phone</h3>
+                        <a href="tel:+1234567890" class="text-cyan-400 hover:text-cyan-300 transition-colors">+1 (234) 567-8900</a>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-blue-500/20 border border-blue-500/50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fas fa-map-marker-alt text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white mb-1">Location</h3>
+                        <p class="text-slate-300">San Francisco, CA | Available for Remote work</p>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-slate-700">
+                    <h3 class="font-semibold text-white mb-4">Connect With Me</h3>
+                    <div class="flex gap-4">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-slate-800/50 border border-slate-700 rounded-lg flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 hover:bg-cyan-500/10">
+                            <i class="fab fa-linkedin text-lg"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-slate-800/50 border border-slate-700 rounded-lg flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 hover:bg-cyan-500/10">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-slate-800/50 border border-slate-700 rounded-lg flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 hover:bg-cyan-500/10">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="https://kaggle.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-slate-800/50 border border-slate-700 rounded-lg flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 hover:bg-cyan-500/10">
+                            <i class="fab fa-kaggle text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

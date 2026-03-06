@@ -1,0 +1,230 @@
+<!-- PROJECTS SECTION - Can be loaded modularly -->
+<section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4 text-center" data-aos="fade-up">
+            Featured Projects
+        </h2>
+        <p class="text-center text-slate-300 mb-12 text-lg" data-aos="fade-up" data-aos-delay="100">
+            Data-driven solutions that turned insights into impact
+        </p>
+
+        <!-- Project Filters -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="200">
+            <button class="filter-btn active px-6 py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50" data-filter="all">
+                All Projects
+            </button>
+            <button class="filter-btn px-6 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 font-semibold transition-all duration-300 hover:border-cyan-500/50 hover:text-cyan-400" data-filter="visualization">
+                <i class="fas fa-chart-bar mr-2"></i>Visualization
+            </button>
+            <button class="filter-btn px-6 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 font-semibold transition-all duration-300 hover:border-cyan-500/50 hover:text-cyan-400" data-filter="machine-learning">
+                <i class="fas fa-brain mr-2"></i>Machine Learning
+            </button>
+            <button class="filter-btn px-6 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 font-semibold transition-all duration-300 hover:border-cyan-500/50 hover:text-cyan-400" data-filter="etl">
+                <i class="fas fa-database mr-2"></i>ETL & Automation
+            </button>
+            <button class="filter-btn px-6 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 font-semibold transition-all duration-300 hover:border-cyan-500/50 hover:text-cyan-400" data-filter="analytics">
+                <i class="fas fa-lightbulb mr-2"></i>Business Analytics
+            </button>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
+            <div class="project-card backdrop-blur bg-slate-800/20 border border-slate-700/50 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 cursor-pointer group" data-aos="fade-up" data-category="etl" onclick="openProjectModal(1)">
+                <div class="relative overflow-hidden h-48 bg-gradient-to-br from-blue-900 to-cyan-900">
+                    <div class="absolute inset-0 flex items-center justify-center text-6xl opacity-20">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-blue-500/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold">
+                        ETL
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Cognifyz: EDA & Data Cleaning</h3>
+                    <p class="text-slate-400 text-sm mb-4">Structured exploratory data analysis and preprocessing to convert raw datasets into analysis-ready data.</p>
+                    <div class="mb-4 p-3 bg-slate-900/50 rounded-lg border border-slate-700/30">
+                        <div class="flex items-center gap-2 text-xs text-green-400 mb-1">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="font-semibold">Impact: Improved dataset quality</span>
+                        </div>
+                        <div class="text-xs text-slate-400">Missing values handled • formats standardized</div>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mb-4">
+                        <span class="px-3 py-1 bg-blue-900/40 text-blue-300 rounded-full text-xs font-semibold">Python</span>
+                        <span class="px-3 py-1 bg-cyan-900/40 text-cyan-300 rounded-full text-xs font-semibold">Pandas</span>
+                        <span class="px-3 py-1 bg-blue-900/40 text-blue-300 rounded-full text-xs font-semibold">NumPy</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://github.com/Vishv05/Cognifyz-Data-Analysis-Internship" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2" onclick="event.stopPropagation()">
+                            <i class="fas fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card backdrop-blur bg-slate-800/20 border border-slate-700/50 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 cursor-pointer group" data-aos="fade-up" data-aos-delay="100" data-category="visualization" onclick="openProjectModal(2)">
+                <div class="relative overflow-hidden h-48 bg-gradient-to-br from-purple-900 to-blue-900">
+                    <div class="absolute inset-0 flex items-center justify-center text-6xl opacity-20">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-purple-500/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold">
+                        Visualization
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Cognifyz: Visualization & Trend Analysis</h3>
+                    <p class="text-slate-400 text-sm mb-4">Built visual insights to identify trends, correlations, and patterns in structured datasets.</p>
+                    <div class="mb-4 p-3 bg-slate-900/50 rounded-lg border border-slate-700/30">
+                        <div class="flex items-center gap-2 text-xs text-green-400 mb-1">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="font-semibold">Impact: Faster pattern recognition</span>
+                        </div>
+                        <div class="text-xs text-slate-400">Heatmaps • trend plots • distribution analysis</div>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mb-4">
+                        <span class="px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full text-xs font-semibold">Matplotlib</span>
+                        <span class="px-3 py-1 bg-blue-900/40 text-blue-300 rounded-full text-xs font-semibold">Python</span>
+                        <span class="px-3 py-1 bg-cyan-900/40 text-cyan-300 rounded-full text-xs font-semibold">Seaborn</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://github.com/Vishv05/Cognifyz-Data-Analysis-Internship" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2" onclick="event.stopPropagation()">
+                            <i class="fas fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card backdrop-blur bg-slate-800/20 border border-slate-700/50 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 cursor-pointer group" data-aos="fade-up" data-aos-delay="200" data-category="analytics" onclick="openProjectModal(3)">
+                <div class="relative overflow-hidden h-48 bg-gradient-to-br from-green-900 to-cyan-900">
+                    <div class="absolute inset-0 flex items-center justify-center text-6xl opacity-20">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-green-500/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold">
+                        Analytics
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Cognifyz: Insight Extraction & Reporting</h3>
+                    <p class="text-slate-400 text-sm mb-4">Converted analytical findings into structured business insights and reports for decisions.</p>
+                    <div class="mb-4 p-3 bg-slate-900/50 rounded-lg border border-slate-700/30">
+                        <div class="flex items-center gap-2 text-xs text-green-400 mb-1">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="font-semibold">Impact: Insight-driven recommendations</span>
+                        </div>
+                        <div class="text-xs text-slate-400">KPI identification • structured reporting</div>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mb-4">
+                        <span class="px-3 py-1 bg-green-900/40 text-green-300 rounded-full text-xs font-semibold">Pandas</span>
+                        <span class="px-3 py-1 bg-blue-900/40 text-blue-300 rounded-full text-xs font-semibold">Python</span>
+                        <span class="px-3 py-1 bg-cyan-900/40 text-cyan-300 rounded-full text-xs font-semibold">Matplotlib</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://github.com/Vishv05/Cognifyz-Data-Analysis-Internship" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2" onclick="event.stopPropagation()">
+                            <i class="fas fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card backdrop-blur bg-slate-800/20 border border-slate-700/50 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 cursor-pointer group" data-aos="fade-up" data-category="etl" onclick="openProjectModal(4)">
+                <div class="relative overflow-hidden h-48 bg-gradient-to-br from-slate-900 to-blue-900">
+                    <div class="absolute inset-0 flex items-center justify-center text-6xl opacity-20">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-blue-500/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold">
+                        ETL
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Prodigy: Preprocessing & Feature Analysis</h3>
+                    <p class="text-slate-400 text-sm mb-4">Cleaned and transformed data for machine learning readiness with feature-level analysis.</p>
+                    <div class="mb-4 p-3 bg-slate-900/50 rounded-lg border border-slate-700/30">
+                        <div class="flex items-center gap-2 text-xs text-green-400 mb-1">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="font-semibold">Impact: Better model-ready dataset</span>
+                        </div>
+                        <div class="text-xs text-slate-400">Missing values handled • categorical encoding applied</div>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mb-4">
+                        <span class="px-3 py-1 bg-blue-900/40 text-blue-300 rounded-full text-xs font-semibold">Scikit-learn</span>
+                        <span class="px-3 py-1 bg-cyan-900/40 text-cyan-300 rounded-full text-xs font-semibold">Pandas</span>
+                        <span class="px-3 py-1 bg-blue-900/40 text-blue-300 rounded-full text-xs font-semibold">NumPy</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://github.com/Vishv05/Prodigy-InfoTech-Data-Science-Internship" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2" onclick="event.stopPropagation()">
+                            <i class="fas fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card backdrop-blur bg-slate-800/20 border border-slate-700/50 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 cursor-pointer group" data-aos="fade-up" data-aos-delay="100" data-category="visualization" onclick="openProjectModal(5)">
+                <div class="relative overflow-hidden h-48 bg-gradient-to-br from-cyan-900 to-slate-900">
+                    <div class="absolute inset-0 flex items-center justify-center text-6xl opacity-20">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-cyan-500/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold">
+                        Visualization
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Prodigy: Pattern Recognition</h3>
+                    <p class="text-slate-400 text-sm mb-4">Built visual analysis to detect patterns, outliers, and variable relationships before modeling.</p>
+                    <div class="mb-4 p-3 bg-slate-900/50 rounded-lg border border-slate-700/30">
+                        <div class="flex items-center gap-2 text-xs text-green-400 mb-1">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="font-semibold">Impact: Stronger data understanding</span>
+                        </div>
+                        <div class="text-xs text-slate-400">Outlier detection • feature behavior analysis</div>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mb-4">
+                        <span class="px-3 py-1 bg-cyan-900/40 text-cyan-300 rounded-full text-xs font-semibold">Matplotlib</span>
+                        <span class="px-3 py-1 bg-blue-900/40 text-blue-300 rounded-full text-xs font-semibold">Seaborn</span>
+                        <span class="px-3 py-1 bg-blue-900/40 text-blue-300 rounded-full text-xs font-semibold">Python</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://github.com/Vishv05/Prodigy-InfoTech-Data-Science-Internship" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2" onclick="event.stopPropagation()">
+                            <i class="fas fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card backdrop-blur bg-slate-800/20 border border-slate-700/50 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 cursor-pointer group" data-aos="fade-up" data-aos-delay="200" data-category="machine-learning" onclick="openProjectModal(6)">
+                <div class="relative overflow-hidden h-48 bg-gradient-to-br from-purple-900 to-cyan-900">
+                    <div class="absolute inset-0 flex items-center justify-center text-6xl opacity-20">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-purple-500/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold">
+                        Machine Learning
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Prodigy: Predictive Modeling</h3>
+                    <p class="text-slate-400 text-sm mb-4">Implemented and evaluated ML models to generate predictive insights for business decisions.</p>
+                    <div class="mb-4 p-3 bg-slate-900/50 rounded-lg border border-slate-700/30">
+                        <div class="flex items-center gap-2 text-xs text-green-400 mb-1">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="font-semibold">Impact: Better outcome prediction</span>
+                        </div>
+                        <div class="text-xs text-slate-400">Model comparison • metric-based validation</div>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mb-4">
+                        <span class="px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full text-xs font-semibold">Scikit-learn</span>
+                        <span class="px-3 py-1 bg-blue-900/40 text-blue-300 rounded-full text-xs font-semibold">Pandas</span>
+                        <span class="px-3 py-1 bg-cyan-900/40 text-cyan-300 rounded-full text-xs font-semibold">NumPy</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://github.com/Vishv05/Prodigy-InfoTech-Data-Science-Internship" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2" onclick="event.stopPropagation()">
+                            <i class="fas fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
