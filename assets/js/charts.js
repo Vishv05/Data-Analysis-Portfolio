@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
 function initializeAnalyticsChart() {
     const ctx = document.getElementById('analyticsChart');
     
-    // Don't initialize if element doesn't exist
-    if (!ctx) return;
+    // Don't initialize if element doesn't exist or Chart.js not loaded
+    if (!ctx || typeof Chart === 'undefined') return;
     
     // Destroy existing chart if it exists
     if (analyticsChart) {
@@ -153,8 +153,8 @@ function initializeAnalyticsChart() {
 function initializeSkillChart() {
     const ctx = document.getElementById('skillChart');
     
-    // Don't initialize if element doesn't exist
-    if (!ctx) return;
+    // Don't initialize if element doesn't exist or Chart.js not loaded
+    if (!ctx || typeof Chart === 'undefined') return;
     
     // Destroy existing chart if it exists
     if (skillChart) {

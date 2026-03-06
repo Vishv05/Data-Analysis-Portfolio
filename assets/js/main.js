@@ -85,24 +85,26 @@ backToTopBtn.addEventListener('click', () => {
 // TYPED.JS ANIMATION
 // ===========================
 
-const typed = new Typed('#typed', {
-    strings: [
-        'Data Analyst',
-        'Python Developer',
-        'SQL Expert',
-        'Cloud Enthusiast',
-        'UI/UX Designer',
-        'Data Storyteller'
-    ],
-    typeSpeed: 50,
-    backSpeed: 30,
-    backDelay: 2000,
-    loop: true,
-    smartBackspace: true,
-    cursor: '|',
-    cursorChar: '_',
-    contentType: 'html'
-});
+if (typeof Typed !== 'undefined' && document.getElementById('typed')) {
+    const typed = new Typed('#typed', {
+        strings: [
+            'Data Analyst',
+            'Python Developer',
+            'SQL Expert',
+            'Cloud Enthusiast',
+            'UI/UX Designer',
+            'Data Storyteller'
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true,
+        smartBackspace: true,
+        cursor: '|',
+        cursorChar: '_',
+        contentType: 'html'
+    });
+}
 
 // ===========================
 // STAT COUNTERS
