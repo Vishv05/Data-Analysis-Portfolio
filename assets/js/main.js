@@ -133,21 +133,25 @@ function animateCounters() {
 
 // Trigger counters when stats section comes into view
 const statsSection = document.getElementById('stats');
-const observerOptions = {
-    threshold: 0.5
-};
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
+if (statsSection && 'IntersectionObserver' in window) {
+    const observerOptions = {
+        threshold: 0.5
+    };
 
-if (statsSection) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
     observer.observe(statsSection);
+} else {
+    // Fallback for browsers/environments without IntersectionObserver
+    animateCounters();
 }
 
 // ===========================
@@ -366,23 +370,24 @@ if (projectModal) {
 // SKILL BARS ANIMATION
 // ===========================
 
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const skillBars = entry.target.querySelectorAll('.skill-bar');
-            skillBars.forEach(bar => {
-                bar.style.animation = 'none';
-                // Trigger reflow to restart animation
-                void bar.offsetWidth;
-                bar.style.animation = 'fillBar 0.8s ease forwards';
-            });
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
 const skillsSection = document.getElementById('skills');
-if (skillsSection) {
+
+if (skillsSection && 'IntersectionObserver' in window) {
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBars = entry.target.querySelectorAll('.skill-bar');
+                skillBars.forEach(bar => {
+                    bar.style.animation = 'none';
+                    // Trigger reflow to restart animation
+                    void bar.offsetWidth;
+                    bar.style.animation = 'fillBar 0.8s ease forwards';
+                });
+                skillObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
     skillObserver.observe(skillsSection);
 }
 

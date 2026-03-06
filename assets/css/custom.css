@@ -135,7 +135,7 @@ html {
 
 .skill-item {
     animation: fadeInUp 0.6s ease forwards;
-    opacity: 0;
+    opacity: 1;
 }
 
 .skill-bar {
