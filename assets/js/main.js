@@ -85,8 +85,10 @@ backToTopBtn.addEventListener('click', () => {
 // TYPED.JS ANIMATION
 // ===========================
 
+let typedInstance = null;
+
 if (typeof Typed !== 'undefined' && document.getElementById('typed')) {
-    const typed = new Typed('#typed', {
+    typedInstance = new Typed('#typed', {
         strings: [
             'Data Analyst',
             'Python Developer',
@@ -105,6 +107,50 @@ if (typeof Typed !== 'undefined' && document.getElementById('typed')) {
         contentType: 'html'
     });
 }
+
+function forceRevealStuckElements() {
+    const potentiallyStuckElements = document.querySelectorAll(
+        '[data-aos], .project-card, .blog-card, .stat-card, .skill-item, #about .flex > div, #contact > div > div'
+    );
+
+    potentiallyStuckElements.forEach((element) => {
+        const computed = window.getComputedStyle(element);
+        const isHidden = parseFloat(computed.opacity || '1') < 0.95;
+
+        if (isHidden) {
+            element.style.opacity = '1';
+            element.style.transform = 'none';
+            element.classList.remove('opacity-0');
+            element.classList.add('aos-animate');
+        }
+    });
+
+    if (typeof AOS !== 'undefined' && typeof AOS.refreshHard === 'function') {
+        AOS.refreshHard();
+    }
+}
+
+window.addEventListener('load', () => {
+    setTimeout(forceRevealStuckElements, 300);
+    setTimeout(forceRevealStuckElements, 1800);
+
+    const typedElement = document.getElementById('typed');
+    if (typedElement) {
+        setTimeout(() => {
+            const currentText = (typedElement.textContent || '').trim();
+            if (currentText.length < 4) {
+                if (typedInstance && typeof typedInstance.destroy === 'function') {
+                    typedInstance.destroy();
+                }
+                typedElement.textContent = 'Data Analyst | Python | SQL | Cloud';
+            }
+        }, 4000);
+    }
+});
+
+window.addEventListener('pageshow', () => {
+    setTimeout(forceRevealStuckElements, 200);
+});
 
 // ===========================
 // STAT COUNTERS

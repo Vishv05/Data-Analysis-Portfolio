@@ -9,12 +9,13 @@ function ensureContentVisibilityFallback() {
     });
 
     const criticalSections = document.querySelectorAll(
-        '#projects .project-card, #certifications .md\\:flex, #blog .blog-card, #stats .stat-card, #skills .skill-item'
+        '#projects .project-card, #certifications > div > div > div[data-aos], #blog .blog-card, #stats .stat-card, #skills .skill-item, [data-aos]'
     );
 
     criticalSections.forEach((element) => {
         element.style.opacity = '1';
         element.style.transform = 'none';
+        element.classList.add('aos-animate');
         if (element.style.display === 'none') {
             element.style.display = '';
         }
