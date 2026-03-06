@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Fallback: remove all data-aos opacity hiding
         setTimeout(() => {
             document.querySelectorAll('[data-aos]').forEach(el => {
+                el.classList.remove('opacity-0');
                 el.style.opacity = '1';
                 el.style.transform = 'none';
             });
