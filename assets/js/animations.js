@@ -382,7 +382,7 @@ glowElements.forEach(element => {
 // ===========================
 
 window.addEventListener('load', () => {
-    ensureContentVisibilityFallback();
+    ScrollTrigger.refresh();
     console.log('✨ All GSAP animations initialized!');
 });
 

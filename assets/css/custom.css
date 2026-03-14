@@ -368,22 +368,6 @@ button:focus, a.btn:focus {
     }
 }
 
-/* AOS Custom Animations */
-[data-aos="fade-up"] {
-    animation-name: fadeInUp;
-    animation-duration: 0.6s;
-}
-
-[data-aos="fade-left"] {
-    animation-name: slideInLeft;
-    animation-duration: 0.6s;
-}
-
-[data-aos="fade-right"] {
-    animation-name: slideInRight;
-    animation-duration: 0.6s;
-}
-
 /* ===========================
    RESPONSIVE DESIGN
    =========================== */
