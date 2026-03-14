@@ -2,30 +2,9 @@
    MAIN.JS - Core Functionality
    =========================== */
 
-let typedInstance = null;
-
-function sanitizeAnimationTargets() {
-    const gsapControlledContainers = [
-        '#skills',
-        '#stats',
-        '#projects',
-        '#certifications',
-        '#blog'
-    ];
-
-    gsapControlledContainers.forEach((selector) => {
-        document.querySelectorAll(`${selector} [data-aos]`).forEach((element) => {
-            element.removeAttribute('data-aos');
-            element.removeAttribute('data-aos-delay');
-            element.removeAttribute('data-aos-duration');
-            element.classList.remove('opacity-0');
-        });
-    });
-}
-
-function initializeAOSWithRetries() {
-    sanitizeAnimationTargets();
-
+// Initialize AOS (Animate On Scroll)
+document.addEventListener('DOMContentLoaded', function () {
+    // Ensure AOS library is loaded
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
@@ -33,30 +12,23 @@ function initializeAOSWithRetries() {
             once: true,
             offset: 50,
         });
-
-        setTimeout(() => {
-            if (typeof AOS.refreshHard === 'function') {
-                AOS.refreshHard();
-            }
-        }, 300);
     } else {
         console.warn('AOS library not loaded. Removing opacity-0 classes as fallback.');
+        // Fallback: remove all data-aos opacity hiding
         setTimeout(() => {
-            document.querySelectorAll('[data-aos], .opacity-0').forEach(el => {
+            document.querySelectorAll('[data-aos]').forEach(el => {
                 el.classList.remove('opacity-0');
                 el.style.opacity = '1';
                 el.style.transform = 'none';
-                el.classList.add('aos-animate');
             });
         }, 100);
     }
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeAOSWithRetries);
-} else {
-    initializeAOSWithRetries();
-}
+    
+    // Ensure Typed.js is working or show static text
+    if (typeof Typed === 'undefined' && document.getElementById('typed')) {
+        document.getElementById('typed').textContent = 'Data Analyst | Python | SQL | Cloud';
+    }
+});
 
 // ===========================
 // SCROLL PROGRESS INDICATOR
@@ -113,48 +85,7 @@ backToTopBtn.addEventListener('click', () => {
 // TYPED.JS ANIMATION
 // ===========================
 
-const typedFallbackStrings = [
-    'Data Analyst',
-    'Python Developer',
-    'SQL Expert',
-    'Cloud Enthusiast',
-    'UI/UX Designer',
-    'Data Storyteller'
-];
-
-let typedFallbackTimer = null;
-
-function startTypedFallbackRotator() {
-    const typedElement = document.getElementById('typed');
-    if (!typedElement || typedFallbackTimer) return;
-
-    let currentIndex = 0;
-    typedElement.textContent = typedFallbackStrings[currentIndex];
-
-    typedFallbackTimer = setInterval(() => {
-        currentIndex = (currentIndex + 1) % typedFallbackStrings.length;
-        typedElement.textContent = typedFallbackStrings[currentIndex];
-    }, 2000);
-}
-
-function ensureTypedAnimationHealth() {
-    const typedElement = document.getElementById('typed');
-    if (!typedElement) return;
-
-    const firstSnapshot = (typedElement.textContent || '').trim();
-
-    setTimeout(() => {
-        const secondSnapshot = (typedElement.textContent || '').trim();
-        const isStuck = secondSnapshot.length < 4 || secondSnapshot === firstSnapshot;
-
-        if (isStuck) {
-            if (typedInstance && typeof typedInstance.destroy === 'function') {
-                typedInstance.destroy();
-            }
-            startTypedFallbackRotator();
-        }
-    }, 2600);
-}
+let typedInstance = null;
 
 if (typeof Typed !== 'undefined' && document.getElementById('typed')) {
     typedInstance = new Typed('#typed', {
@@ -175,10 +106,6 @@ if (typeof Typed !== 'undefined' && document.getElementById('typed')) {
         cursorChar: '_',
         contentType: 'html'
     });
-
-    ensureTypedAnimationHealth();
-} else {
-    startTypedFallbackRotator();
 }
 
 function forceRevealStuckElements() {
@@ -206,7 +133,19 @@ function forceRevealStuckElements() {
 window.addEventListener('load', () => {
     setTimeout(forceRevealStuckElements, 300);
     setTimeout(forceRevealStuckElements, 1800);
-    ensureTypedAnimationHealth();
+
+    const typedElement = document.getElementById('typed');
+    if (typedElement) {
+        setTimeout(() => {
+            const currentText = (typedElement.textContent || '').trim();
+            if (currentText.length < 4) {
+                if (typedInstance && typeof typedInstance.destroy === 'function') {
+                    typedInstance.destroy();
+                }
+                typedElement.textContent = 'Data Analyst | Python | SQL | Cloud';
+            }
+        }, 4000);
+    }
 });
 
 window.addEventListener('pageshow', () => {
@@ -217,12 +156,7 @@ window.addEventListener('pageshow', () => {
 // STAT COUNTERS
 // ===========================
 
-let countersAnimated = false;
-
 function animateCounters() {
-    if (countersAnimated) return;
-    countersAnimated = true;
-
     const counters = document.querySelectorAll('.counter');
     
     counters.forEach(counter => {
@@ -265,14 +199,6 @@ if (statsSection && 'IntersectionObserver' in window) {
     // Fallback for browsers/environments without IntersectionObserver
     animateCounters();
 }
-
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        if (!countersAnimated) {
-            animateCounters();
-        }
-    }, 1800);
-});
 
 // ===========================
 // PROJECT MODAL
@@ -529,11 +455,11 @@ const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
-
+    
     if (scrollPosition > 50) {
         // Add scroll effect when scrolled
     }
-
+    
     lastScrollPosition = scrollPosition;
 });
 
@@ -547,7 +473,7 @@ const projectCards = document.querySelectorAll('.project-card');
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const filter = btn.dataset.filter;
-
+        
         // Update active button
         filterBtns.forEach(b => {
             b.classList.remove('active', 'bg-gradient-to-r', 'from-blue-500', 'to-cyan-500', 'text-white');
@@ -555,11 +481,11 @@ filterBtns.forEach(btn => {
         });
         btn.classList.add('active', 'bg-gradient-to-r', 'from-blue-500', 'to-cyan-500', 'text-white');
         btn.classList.remove('bg-slate-800/50', 'border', 'border-slate-700', 'text-slate-300');
-
+        
         // Filter projects with animation
         projectCards.forEach((card, index) => {
             const categories = card.dataset.category;
-
+            
             if (filter === 'all' || categories.includes(filter)) {
                 setTimeout(() => {
                     card.style.display = 'block';
