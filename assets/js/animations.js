@@ -257,25 +257,6 @@ gsap.to('#hero', {
 });
 
 // ===========================
-// SECTION REVEALS WITH STAGGER
-// ===========================
-
-const sectionTitles = document.querySelectorAll('h2');
-sectionTitles.forEach((title) => {
-    gsap.from(title, {
-        scrollTrigger: {
-            trigger: title,
-            start: 'top 80%',
-            once: true
-        },
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        ease: 'power2.out'
-    });
-});
-
-// ===========================
 // BUTTON ANIMATIONS
 // ===========================
 

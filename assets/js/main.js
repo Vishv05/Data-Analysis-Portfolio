@@ -4,6 +4,26 @@
 
 // Initialize AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', function () {
+    // Avoid AOS + GSAP double-animating the same elements.
+    // GSAP controls these sections in animations.js.
+    const gsapControlledSections = [
+        '#skills',
+        '#stats',
+        '#projects',
+        '#certifications',
+        '#blog',
+        '#contact'
+    ];
+
+    gsapControlledSections.forEach((selector) => {
+        document.querySelectorAll(`${selector} [data-aos]`).forEach((element) => {
+            element.removeAttribute('data-aos');
+            element.removeAttribute('data-aos-delay');
+            element.removeAttribute('data-aos-duration');
+            element.classList.remove('opacity-0');
+        });
+    });
+
     // Ensure AOS library is loaded
     if (typeof AOS !== 'undefined') {
         AOS.init({
